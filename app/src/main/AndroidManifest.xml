@@ -1,16 +1,19 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-    mlns:tools="http://schemas.android.com/tools">
 
- <pplication
+    <application
         android:allowBackup="false"
         android:label="LX Music Glass"
         android:theme="@android:style/Theme.Material.Light.NoActionBar"
-        android:supportsRtl="true">
-    tools:overrideLibrary="top.yukonga.miuix.kmp.blur"> 
-     <activity
+        android:supportsRtl="true"
+        tools:overrideLibrary="top.yukonga.miuix.kmp.blur">
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
