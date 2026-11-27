@@ -32,9 +32,11 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
         with:
-          packages: 'platform-tools, platforms;android-37, build-tools;37.0.0'
+          # 修正了这里的包名，android-37.0 是正确写法，build-tools 用 36.0.0 稳定版
+          packages: 'platform-tools, platforms;android-37.0, build-tools;36.0.0'
 
       - name: Build with Gradle
+        # 强制使用系统安装的 gradle，忽略不存在的 ./gradlew
         run: gradle assembleDebug
 
       - name: Upload APK
