@@ -2,12 +2,15 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
-    <application
+    mlns:tools="http://schemas.android.com/tools">
+
+ <pplication
         android:allowBackup="false"
         android:label="LX Music Glass"
         android:theme="@android:style/Theme.Material.Light.NoActionBar"
         android:supportsRtl="true">
-        <activity
+    tools:overrideLibrary="top.yukonga.miuix.kmp.blur"> 
+     <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
