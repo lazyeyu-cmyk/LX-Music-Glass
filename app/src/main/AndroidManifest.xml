@@ -2,16 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ① 核心修改：overrideLibrary 必须放在 uses-sdk 标签里 -->
+    <uses-sdk tools:overrideLibrary="top.yukonga.miuix.kmp.blur" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
+    <!-- ② 从 <application> 标签里删掉之前加的 tools:overrideLibrary -->
     <application
         android:allowBackup="false"
         android:label="LX Music Glass"
         android:theme="@android:style/Theme.Material.Light.NoActionBar"
-        android:supportsRtl="true"
-        tools:overrideLibrary="top.yukonga.miuix.kmp.blur">
+        android:supportsRtl="true">
 
         <activity
             android:name=".MainActivity"
