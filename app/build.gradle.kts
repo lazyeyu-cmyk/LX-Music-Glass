@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "app.lxmusic.glass"
-    compileSdk = 36
+    compileSdk = 37  // 修改：从 36 升级到 37
 
     defaultConfig {
         applicationId = "app.lxmusic.glass"
@@ -25,7 +25,8 @@ android {
 }
 
 dependencies {
-    val composeBom = platform("androidx.compose:compose-bom:2025.12.00")
+    // 修改：Compose BOM 升级至 2026.11.01，以兼容 compileSdk 37
+    val composeBom = platform("androidx.compose:compose-bom:2026.11.01")
     implementation(composeBom)
     androidTestImplementation(composeBom)
     implementation("androidx.activity:activity-compose:1.10.1")
@@ -40,16 +41,16 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    // Miuix Glass stack used by the Mishka migration guide (0.9.5-rc01).
+    // Miuix Glass stack
     implementation("top.yukonga.miuix.kmp:miuix-glass-android:0.9.5-rc01")
     implementation("top.yukonga.miuix.kmp:miuix-glass-icons-android:0.9.5-rc01")
     implementation("top.yukonga.miuix.kmp:miuix-blur-android:0.9.5-rc01")
 
-    // Playback foundation for the next integration phase.
+    // Playback foundation
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-session:1.5.1")
 
-    // Same QuickJS wrapper family used by LX Music Mobile for its user-API sandbox.
+    // QuickJS wrapper
     implementation("wang.harlon.quickjs:wrapper-android:2.4.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
