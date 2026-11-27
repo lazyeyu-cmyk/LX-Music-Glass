@@ -17,22 +17,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '17'
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '9.1.0'
-          cache-disabled: true
+          gradle-version: '8.11.1'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v4.0.4
-        with:
-          packages: 'platform-tools, platforms;android-37.0, build-tools;36.0.0'
+        uses: android-actions/setup-android@v3
+
+      # 核心修复：用命令行强制拉取 API 37 预览版 SDK
+      - name: Install Android 37 SDK
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager --install "platforms;android-37" --channel=3 || true
+          sdkmanager --install "build-tools;36.0.0" || true
 
       - name: Build with Gradle
         run: gradle assembleDebug
